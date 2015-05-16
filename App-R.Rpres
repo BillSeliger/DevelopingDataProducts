@@ -1,0 +1,76 @@
+Developing Data Products Course Project
+========================================================
+author: Bill Seliger
+date: May 17, 2015
+
+Airline Revenue Optimization
+========================================================
+
+This App uses the R lpSolveAPI package within a Shinyapp to 
+optimize airline revenue based on **two** inputs from the user:
+
+- Demand for regular-priced seats
+- Demand for discount-priced seats
+
+The App then constructs a linear programming model (LP) using R code, 
+solves the linear program with the lpSolveAPI package, and
+returns the objective value - the maximum revenue given the selected 
+demand for the two inputs.
+
+This App is hosted on an AWS Ubuntu server at the below link:
+[Airline Revenue Optimization](http://ec2-52-24-253-140.us-west-2.compute.amazonaws.com/app-4/)
+
+
+Formulating the LP - 
+========================================================
+
+The LP is formulated with **two** decision variables
+- Number of regular-priced seats to sell
+- Number of discount-priced seats to sell
+
+The LP also has **five** constraints or inequalities
+- Seats sold cannot exceed capacity of the plane (166 seats)
+- Regular price seats sold cannot exceed regular demand
+- Discount price seats sold cannot exceed discount demand
+- Seats sold at both levels must be nonnegative
+
+Viewing the LP formulation
+========================================================
+```{r, echo=FALSE, print=FALSE}
+require(lpSolveAPI)
+lprec <- make.lp(5, 2); regular = 100; discount = 150; invisible(lp.control(lprec, sense = "max"))
+set.objfn(lprec, c(617, 238))
+set.constr.value(lprec, rhs = c(166,regular,discount,0,0), constraints=seq(1:5))
+set.constr.type(lprec, c(rep("<=", 3), rep(">=", 2)))
+set.row(lprec, 1, c(1, 1), indices = c(1, 2))
+set.row(lprec, 2, 1, indices = 1)
+set.row(lprec, 3, 1, indices = 2)
+set.row(lprec, 4, 1, indices = 1)
+set.row(lprec, 5, 1, indices = 2)
+dimnames(lprec) <- list(c("capacity","reg_demand", "discount_demand", "reg_positive", "disc_positive"), c("reg","disc"))
+```
+
+
+```{r}
+print(lprec)
+```
+
+To learn more about LP optimization
+========================================================
+
+
+
+This problem is based on the lesson found here
+
+[MITx 15.071x The Analytics Edge](https://www.edx.org/course/analytics-edge-mitx-15-071x-0)
+
+[Airline Revenue Management](https://www.youtube.com/watch?v=Jw38g53g-s0)
+
+Information on the lpSolveAPI package can be found here
+
+[Package lpSolveAPI](http://cran.r-project.org/web/packages/lpSolveAPI/lpSolveAPI.pdf)
+
+[lpSolveAPI Vignette](http://www.icesi.edu.co/CRAN/web/packages/lpSolveAPI/vignettes/lpSolveAPI.pdf)
+
+
+
