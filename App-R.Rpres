@@ -6,19 +6,20 @@ date: May 17, 2015
 Airline Revenue Optimization
 ========================================================
 
-This App uses the R lpSolveAPI package within a Shinyapp to 
+This App is based on a lesson presented in [MITx 15.071x The Analytics Edge](https://www.edx.org/course/analytics-edge-mitx-15-071x-0) MOOC.  
+It uses the R lpSolveAPI package within a Shinyapp to 
 optimize airline revenue based on **two** inputs from the user:
 
 - Demand for regular-priced seats
 - Demand for discount-priced seats
 
-The App then constructs a linear programming model (LP) using R code, 
+The App then constructs a linear programming (LP) model using R code, 
 solves the linear program with the lpSolveAPI package, and
 returns the objective value - the maximum revenue given the selected 
 demand for the two inputs.
 
 This App is hosted on an AWS Ubuntu server at the below link:
-[Airline Revenue Optimization](http://ec2-52-24-253-140.us-west-2.compute.amazonaws.com/app-4/)
+[Airline Revenue Optimization](www.billseliger.com/test2)
 
 
 Formulating the LP - 
@@ -29,9 +30,10 @@ The LP is formulated with **two** decision variables
 - Number of discount-priced seats to sell
 
 The LP also has **five** constraints or inequalities
-- Seats sold cannot exceed capacity of the plane (166 seats)
+- Seats sold cannot exceed capacity of the plane 
+(166 seats)
 - Regular price seats sold cannot exceed regular demand
-- Discount price seats sold cannot exceed discount demand
+- Discount seats sold cannot exceed discount demand
 - Seats sold at both levels must be nonnegative
 
 Viewing the LP formulation
@@ -47,6 +49,7 @@ set.row(lprec, 2, 1, indices = 1)
 set.row(lprec, 3, 1, indices = 2)
 set.row(lprec, 4, 1, indices = 1)
 set.row(lprec, 5, 1, indices = 2)
+name.lp(lprec, "Airline Revenue Optimization")
 dimnames(lprec) <- list(c("capacity","reg_demand", "discount_demand", "reg_positive", "disc_positive"), c("reg","disc"))
 ```
 
@@ -55,22 +58,16 @@ dimnames(lprec) <- list(c("capacity","reg_demand", "discount_demand", "reg_posit
 print(lprec)
 ```
 
-To learn more about LP optimization
+Learn more about LP optimization
 ========================================================
 
+Optimization is widely used in business and can drive significant value by reducing costs or maximizing revenues.  It can be applied to supply chain problems as varied as strategic network design, inventory warehouse allocation, or granular manufacturing order allocation based on lowest total landed costs and capacity constraints.  
 
-
-This problem is based on the lesson found here
-
-[MITx 15.071x The Analytics Edge](https://www.edx.org/course/analytics-edge-mitx-15-071x-0)
-
-[Airline Revenue Management](https://www.youtube.com/watch?v=Jw38g53g-s0)
+The problem presented here is based on MITx lesson [Airline Revenue Management](https://www.youtube.com/watch?v=Jw38g53g-s0)
 
 Information on the lpSolveAPI package can be found here
 
-[Package lpSolveAPI](http://cran.r-project.org/web/packages/lpSolveAPI/lpSolveAPI.pdf)
-
-[lpSolveAPI Vignette](http://www.icesi.edu.co/CRAN/web/packages/lpSolveAPI/vignettes/lpSolveAPI.pdf)
+[Package lpSolveAPI](http://cran.r-project.org/web/packages/lpSolveAPI/lpSolveAPI.pdf) - or - [lpSolveAPI Vignette](http://www.icesi.edu.co/CRAN/web/packages/lpSolveAPI/vignettes/lpSolveAPI.pdf)
 
 
 
