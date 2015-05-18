@@ -1,8 +1,10 @@
+## App-4
+
 library(shiny)
 shinyUI(
 pageWithSidebar(
   # Application Title
-  headerPanel("Diabetes Prediction"),
+  headerPanel("Bill Seliger's Diabetes Prediction APP - thanks Derek Inksetter!"),
               
               sidebarPanel(
               numericInput('glucose','Glucose mg/dl', 90, min = 50, max = 200, step = 5),

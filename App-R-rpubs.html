@@ -752,6 +752,7 @@ hljs.initHighlightingOnLoad();
 <h1>Developing Data Products Course Project</h1><p>Bill Seliger<br/>May 17, 2015</p>
 
 <div class="slideContent" >
+<p>Maximizing Revenue using Linear Programming Optimization</p>
 
 </div>
 
@@ -759,8 +760,7 @@ hljs.initHighlightingOnLoad();
 <section data-transition="linear" data-transition-speed="default">
 <h3>Airline Revenue Optimization</h3>
 <div class="slideContent" >
-<p>This App is based on a lesson presented in <a href="https://www.edx.org/course/analytics-edge-mitx-15-071x-0">MITx 15.071x The Analytics Edge</a> MOOC.<br/>
-It uses the R lpSolveAPI package within a Shinyapp to 
+<p>This App is based on a lesson presented in <a href="http://www.edx.org/course/analytics-edge-mitx-15-071x-0">MITx 15.071x The Analytics Edge</a> MOOC.  The App uses the R lpSolveAPI package within a Shinyapp to 
 optimize airline revenue based on <strong>two</strong> inputs from the user:</p>
 
 <ul>
@@ -768,13 +768,13 @@ optimize airline revenue based on <strong>two</strong> inputs from the user:</p>
 <li>Demand for discount-priced seats</li>
 </ul>
 
-<p>The App then constructs a linear programming (LP) model using R code, 
-solves the linear program with the lpSolveAPI package, and
-returns the objective value - the maximum revenue given the selected 
-demand for the two inputs.</p>
+<p>The App then constructs and solves a linear programming (LP) model using R code, 
+and the lpSolveAPI package, and returns the decision variables - how many seats 
+of each price level to sell, and the objective value - the maximum revenue given 
+the user-selected demand levels.</p>
 
 <p>This App is hosted on an AWS Ubuntu server at the below link:
-<a href="ec2-52-25-36-145.us-west-2.compute.amazonaws.com/test2">Airline Revenue Optimization</a></p>
+<a href="http://www.billseliger.com/test4">Airline Revenue Optimization</a></p>
 
 </div>
 
@@ -830,7 +830,7 @@ Lower               0     0
 <div class="slideContent" >
 <p>Optimization is widely used in business and can drive significant value by minimizing costs or maximizing revenues.  It can be applied to supply chain problems as varied as strategic network design, inventory warehouse allocation, or granular manufacturing order allocation based on lowest total landed costs and capacity constraints.  </p>
 
-<p>The problem presented here is based on MITx lesson <a href="https://www.youtube.com/watch?v=Jw38g53g-s0">Airline Revenue Management</a></p>
+<p>The problem presented here is based on MITx lesson <a href="http://www.youtube.com/watch?v=Jw38g53g-s0">Airline Revenue Management</a></p>
 
 <p>Information on the lpSolveAPI package can be found here</p>
 
