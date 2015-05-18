@@ -19,8 +19,7 @@ returns the objective value - the maximum revenue given the selected
 demand for the two inputs.
 
 This App is hosted on an AWS Ubuntu server at the below link:
-[Airline Revenue Optimization](www.billseliger.com/test2)
-
+[Airline Revenue Optimization](ec2-52-25-36-145.us-west-2.compute.amazonaws.com/test2)
 
 Formulating the LP - 
 ========================================================
@@ -61,7 +60,7 @@ print(lprec)
 Learn more about LP optimization
 ========================================================
 
-Optimization is widely used in business and can drive significant value by reducing costs or maximizing revenues.  It can be applied to supply chain problems as varied as strategic network design, inventory warehouse allocation, or granular manufacturing order allocation based on lowest total landed costs and capacity constraints.  
+Optimization is widely used in business and can drive significant value by minimizing costs or maximizing revenues.  It can be applied to supply chain problems as varied as strategic network design, inventory warehouse allocation, or granular manufacturing order allocation based on lowest total landed costs and capacity constraints.  
 
 The problem presented here is based on MITx lesson [Airline Revenue Management](https://www.youtube.com/watch?v=Jw38g53g-s0)
 
