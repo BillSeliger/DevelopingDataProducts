@@ -20,15 +20,12 @@ h4('This App is based on a lesson presented in the edX/MITx MOOC:'),
 h3(a('The Analytics Edge', href="https://www.edx.org/course/analytics-edge-mitx-15-071x-0")),
 h4('The lesson for this problem is solved in LibreOffice in the video linked below'),
 h3(a('Airline Revenue Management', href="https://www.youtube.com/watch?v=Jw38g53g-s0")),
-h3('Background on Optimization'),
-h4('Linear programming (LP, also called linear optimization) is a method to achieve the best outcome 
-(such as maximum profit or lowest cost) using a mathematical model whose requirements are represented 
-by linear relationships. Linear programming is a special case of mathematical programming 
-(mathematical optimization). The lpSolveAPI package capably handles even very large Linear Programs
-(LPs) with many thousands of variables and constraints as well as Mixed Integer Programs (MIPs).  Several 
-commercial solvers are available - Gurobi and CPLEX being the most well known - that can be used for 
-problems that are insolvable using the lpSolveAPI solver.  It should be mentioned that many MIPs have proven 
-intractable to even these commercial solvers.' ))),           
+h4('A companion RPubs presentation can be found here:'),
+h3(a('Developing Data Products Course Project', href="http://rpubs.com/BillSeliger/80272")),
+h4('The R code for this App can be found here:'),
+h3(a('DevelopingDataProducts Github Repo', 
+     href="http://github.com/BillSeliger/DevelopingDataProducts/tree/master/Test3"))
+)),           
              tabPanel("LP Model",
                       mainPanel(
                         h3('The LP formulation below is created in R based on the user inputs and is solved using the 
@@ -50,5 +47,18 @@ intractable to even these commercial solvers.' ))),
                h4('If Regular/Discount seats are sold in the following quantities '),
                verbatimTextOutput("variables"),
                h4('it will result in optimized revenue of '),
-               verbatimTextOutput("objective")))
+               verbatimTextOutput("objective"))),
+tabPanel("Uses of Optimization",
+         mainPanel(
+           h3('Background on Optimization'),
+           h4('Linear programming (LP, also called linear optimization) is a method to achieve the best outcome 
+(such as maximum profit or lowest cost) using a mathematical model whose requirements are represented 
+by linear relationships. Linear programming is a special case of mathematical programming 
+(mathematical optimization). The lpSolveAPI package capably handles even very large LPs with many thousands of 
+variables and constraints as well as Mixed Integer Programs (MIPs), a special form of LPs that contain a variable 
+that has the additional constraint of being an integer (whole number) or binary (0 or 1).  Several 
+commercial LP/MIP solvers are available - Gurobi and CPLEX being the most well known - that can be used for 
+problems that are insolvable using the lpSolveAPI solver.  It should be mentioned that many MIPs have proven 
+intractable to even these commercial solvers and it is both an art and science to properly formulating a MIP that 
+              will work in production.' )))
              ))
