@@ -27,7 +27,7 @@ h3(a('Developing Data Products Course Project', href="http://rpubs.com/BillSelig
      target="_blank")),
 h4('The R code for this App can be found here:'),
 h3(a('DevelopingDataProducts Github Repo', 
-     href="http://github.com/BillSeliger/DevelopingDataProducts/tree/master/Test3",
+     href="http://github.com/BillSeliger/DevelopingDataProducts/tree/master/Test4",
      target="_blank"))
 )),           
              tabPanel("LP Model",
